@@ -29,9 +29,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/pets', [\App\Http\Controllers\PetController::class, 'index'])->name('pets');
-    Route::get('/pets/{pet:id}', [\App\Http\Controllers\PetController::class, 'show'])->name('pet');
-    Route::post('/pets', [\App\Http\Controllers\PetController::class, 'store'])->name('pet.create');
+//    Route::get('/pets', [\App\Http\Controllers\PetController::class, 'index'])->name('pets');
+//    Route::get('/pets/{pet:id}', [\App\Http\Controllers\PetController::class, 'show'])->name('pet');
+    Route::get('/pets/add', [\App\Http\Controllers\PetController::class, 'create'])->name('pet.create');
+    Route::post('/pets', [\App\Http\Controllers\PetController::class, 'store'])->name('pet.store');
 });
 
 require __DIR__ . '/auth.php';

@@ -10,6 +10,7 @@ class PetController extends Controller
 {
     public function store(Request $request)
     {
+        dd($request);
         $attributes = request()->validate([
             'name' => 'required|string|max:255',
             'category' => 'required|string|max255',
@@ -31,5 +32,10 @@ class PetController extends Controller
             $image->save();
         }
 
+    }
+
+    public function create()
+    {
+        return view('pets.create');
     }
 }
