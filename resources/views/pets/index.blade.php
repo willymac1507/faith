@@ -22,7 +22,8 @@
                                 <th scope="col"
                                     class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">Name
                                 </th>
-                                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                <th scope="col"
+                                    class="hidden md:block px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                     Age
                                 </th>
                                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status
@@ -43,11 +44,12 @@
 
                                         <div>
                                             <div class="font-medium text-gray-900">{{ $pet->name }}</div>
-                                            <div class="mt-1 text-gray-500">{{ ucfirst($pet->category) }}</div>
+                                            <div class="mt-1 text-gray-500">{{ ucfirst($pet->category) }}
+                                                - {{ $pet->sex }}</div>
                                         </div>
 
                                     </td>
-                                    <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
+                                    <td class="hidden md:block whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                                         <div class="text-gray-900">{{ $pet->age_years }} years</div>
                                         <div class="mt-1 text-gray-500">{{ $pet->age_months }} months</div>
                                     </td>

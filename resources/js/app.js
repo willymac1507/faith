@@ -4,10 +4,9 @@ import Alpine from 'alpinejs';
 import {Dropzone} from "dropzone";
 
 window.Alpine = Alpine;
-let myDropzone = new Dropzone("form#myDropForm");
-myDropzone.on("addedfile", file => {
-    console.log("A file has been added!");
-})
+let myDropzone = new Dropzone("form#myDropForm", {
+    dictDefaultMessage: 'Drag and Drop Images here'
+});
 
 Alpine.start();
 

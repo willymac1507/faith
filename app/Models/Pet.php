@@ -15,6 +15,7 @@ class Pet extends Model
         'name',
         'category',
         'description',
+        'sex',
         'age_years',
         'age_months',
         'status',

@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\Pet;
 use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Pet $pet)
     {
-        $attributes['pet_id'] = 14;
-        $attributes['url'] = request()->file('file')->store('images');
+        $imageFile = request()->file('file');
+        $size = $imageFile->getSize();
+        $path = $imageFile->store('public/images');
+        $attributes['pet_id'] = $pet->id;
+        $attributes['url'] = $path;
+        $attributes['size'] = $size;
 
         Image::create($attributes);
     }

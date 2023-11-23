@@ -15,6 +15,7 @@ class PetFactory extends Factory
             'name' => fake()->firstName(),
             'category' => fake()->randomElement(['dog', 'cat', 'rabbit', 'other']),
             'description' => fake()->paragraph,
+            'sex' => fake()->randomElement(['male', 'female']),
             'age_years' => rand(0, 15),
             'age_months' => rand(0, 11),
             'status' => fake()->randomElement(['Available', 'Reserved', 'Adopted']),

@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::post('/pets', [ImageController::class, 'store'])->name('image.store');
+    Route::post('/pet/{pet:id}/add-image', [ImageController::class, 'store'])->name('image.store');
 });
 
 require __DIR__ . '/auth.php';

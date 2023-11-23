@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name')->nullable(false);
             $table->string('category')->nullable(false);
             $table->text('description')->nullable(false);
+            $table->text('sex')->nullable(false);
             $table->integer('age_years');
             $table->integer('age_months');
             $table->string('status');
