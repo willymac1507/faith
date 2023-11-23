@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PetController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +31,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-//    Route::get('/pets', [\App\Http\Controllers\PetController::class, 'index'])->name('pets');
-//    Route::get('/pets/{pet:id}', [\App\Http\Controllers\PetController::class, 'show'])->name('pet');
-    Route::get('/pets/add', [\App\Http\Controllers\PetController::class, 'create'])->name('pet.create');
-    Route::post('/pets', [\App\Http\Controllers\PetController::class, 'store'])->name('pet.store');
+    Route::get('/pets', [PetController::class, 'index'])->name('pets.index');
+    Route::get('/pet/{pet:id}', [PetController::class, 'show'])->name('pet.show');
+    Route::get('/pets/add', [PetController::class, 'create'])->name('pet.create');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/pets', [ImageController::class, 'store'])->name('image.store');
 });
 
 require __DIR__ . '/auth.php';

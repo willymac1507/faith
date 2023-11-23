@@ -120,3 +120,19 @@
         outline: 0;
     }
 }
+
+.status {
+    @apply inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset;
+}
+
+.status-available {
+    @apply bg-green-50 text-green-700 ring-green-600/20;
+}
+
+.status-reserved {
+    @apply bg-amber-50 text-amber-700 ring-amber-600/20;
+}
+
+.status-adopted {
+    @apply bg-red-50 text-red-700 ring-red-600/20;
+}

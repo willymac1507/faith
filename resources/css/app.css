@@ -1,4 +1,5 @@
 @import "additional.scss";
+@import "dropzone/dist/dropzone.css";
 
 @tailwind base;
 @tailwind components;

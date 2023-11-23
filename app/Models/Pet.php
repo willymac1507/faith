@@ -17,8 +17,10 @@ class Pet extends Model
         'description',
         'age_years',
         'age_months',
-        'reserved',
-        'adopted'
+        'status',
+        'date_registered',
+        'date_reserved',
+        'date_adopted'
     ];
 
     public function images(): \Illuminate\Database\Eloquent\Relations\HasMany

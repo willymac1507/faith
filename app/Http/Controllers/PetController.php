@@ -5,37 +5,34 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Pet;
 use Illuminate\Http\Request;
+use JetBrains\PhpStorm\NoReturn;
+use Symfony\Component\HttpFoundation\InputBag;
 
 class PetController extends Controller
 {
-    public function store(Request $request)
+    public function index()
     {
-        dd($request);
-        $attributes = request()->validate([
-            'name' => 'required|string|max:255',
-            'category' => 'required|string|max255',
-            'description' => 'required|string',
-            'age_years' => 'required|integer',
-            'age_months' => 'required|integer',
-            'reserved' => 'required|boolean',
-            'adopted' => 'required|adopted'
+        return view('pets.index', [
+            'pets' => Pet::orderBy('name')
+                ->paginate(10)
         ]);
-        $pet = Pet::create($attributes);
+    }
 
-        foreach ($request->file('images') as $imageFile) {
-            $image = new Image();
-            $path = $imageFile->store('/images/resource', [
-                'disk' => 'public_files'
-            ]);
-            $image->url = $path;
-            $image->pet_id = $pet->id;
-            $image->save();
-        }
+    public function show(Pet $pet)
+    {
+        return view('pets.show', [
+            'pet' => $pet,
+            'images' => $pet->images
+        ]);
+    }
 
+    public function store()
+    {
+        // Store a new pet
     }
 
     public function create()
     {
-        return view('pets.create');
+        return view('pets.temp');
     }
 }
