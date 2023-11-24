@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('url');
             $table->string('size');
+            $table->boolean('cover');
             $table->unsignedBigInteger('pet_id');
             $table->timestamps();
         });

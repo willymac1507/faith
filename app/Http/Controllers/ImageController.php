@@ -16,6 +16,7 @@ class ImageController extends Controller
         $attributes['pet_id'] = $pet->id;
         $attributes['url'] = $path;
         $attributes['size'] = $size;
+        $attributes['cover'] = false;
 
         Image::create($attributes);
     }

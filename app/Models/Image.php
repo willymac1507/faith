@@ -14,6 +14,7 @@ class Image extends Model
     protected $fillable = [
         'url',
         'size',
+        'cover',
         'pet_id'
     ];
 

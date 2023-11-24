@@ -14,7 +14,9 @@ class PetController extends Controller
     {
         return view('pets.index', [
             'pets' => Pet::orderBy('name')
+                ->filter(request(['search', 'status', 'sex', 'category']))
                 ->paginate(10)
+                ->withQueryString()
         ]);
     }
 
