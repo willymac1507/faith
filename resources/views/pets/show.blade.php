@@ -46,15 +46,6 @@
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Images</dt>
-                        <div class="ml-auto text-sm col-start-4 flex-shrink-0 pr-4">
-                                            <span
-                                                @click="
-                                                imageUploader = !imageUploader;
-                                                (!imageUploader ? location.reload(): '');
-                                                "
-                                                class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500"
-                                                x-text="(imageUploader ? 'Close Uploader' : 'Add Images')"/>
-                        </div>
                         <dd class="mt-2 text-sm text-gray-900 sm:col-span-4 sm:mt-0">
                             <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
                                 @if(count($images) > 0)
@@ -75,11 +66,6 @@
                                             <div class="ml-4 flex-shrink-0">
                                                 @if($image->cover)
                                                     <span class="font-medium text-green-500">Cover Image</span>
-                                                @else
-                                                    <a href="/pet/{{ $pet->id }}/{{ $image->id }}/cover"
-                                                       class="font-medium text-indigo-600 hover:text-indigo-500">Make
-                                                        Cover
-                                                        Image</a>
                                                 @endif
                                             </div>
                                         </li>
@@ -95,14 +81,6 @@
                         </dd>
                     </div>
                 </dl>
-            </div>
-        </div>
-        <div x-transition x-show="imageUploader" class="overflow-hidden bg-white shadow sm:rounded-lg">
-            <div class="px-4 py-6 sm:px-6">
-                <h3 class="text-base font-semibold leading-7 text-gray-900">Image Uploader</h3>
-                <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500 mb-6">These images will be viewable
-                    on the public area of the site</p>
-                <x-image-uploader id="{{ $pet->id }}"/>
             </div>
         </div>
     </div>

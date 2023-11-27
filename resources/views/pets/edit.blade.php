@@ -17,14 +17,14 @@
             </div>
             <div class="border-t border-gray-100">
                 <dl class="divide-y divide-gray-100">
-                    <x-edit-form-input name="name" type="text" :value="$pet->name"/>
-                    <x-edit-form-input name="category" type="text" :value="ucfirst($pet->category)"/>
-                    <x-edit-form-select name="sex" :value="$pet->sex" :options="['male', 'female']"/>
-                    <x-edit-form-input name="years" type="number" :value="$pet->age_years"/>
-                    <x-edit-form-input name="months" type="number" :value="$pet->age_months"/>
-                    <x-edit-form-select name="status" :value="$pet->status"
+                    <x-edit-form-input name="name" label="Name" type="text" :value="$pet->name"/>
+                    <x-edit-form-input name="category" label="Category" type="text" :value="ucfirst($pet->category)"/>
+                    <x-edit-form-select name="sex" label="Sex" :value="$pet->sex" :options="['male', 'female']"/>
+                    <x-edit-form-input name="age_years" label="Years" type="number" :value="$pet->age_years"/>
+                    <x-edit-form-input name="age_months" label="Months" type="number" :value="$pet->age_months"/>
+                    <x-edit-form-select name="status" label="Status" :value="$pet->status"
                                         :options="['available', 'adopted', 'reserved']"/>
-                    <x-edit-form-textarea name="description" :value="$pet->description"/>
+                    <x-edit-form-textarea name="description" label="About" :value="$pet->description"/>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium leading-6 text-gray-900">Images</dt>
                         <div class="ml-auto text-sm col-start-4 flex-shrink-0 pr-4">

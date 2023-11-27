@@ -1,10 +1,11 @@
 @props([
     'name',
     'value',
+    'label'
 ])
 <div {{ $attributes->class(['px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6']) }}>
     <label for="{{ $name }}"
-           class="flex items-center text-sm font-medium text-gray-900">{{ ucfirst($name) }}</label>
+           class="flex items-center text-sm font-medium text-gray-900">{{ $label }}</label>
     <textarea id="{{ $name }}"
               name="{{ $name }}"
               rows="4"

@@ -37,14 +37,13 @@ class PetController extends Controller
         ]);
     }
 
-    public function update(Pet $pet, Request $request)
+    public function update(Pet $pet, StorePetRequest $request)
     {
-        dd($request);
-//        $attributes = $request->validated();
-//
-//        $pet->update($attributes);
-//
-//        return to_route('pet.show', ['pet' => $pet])->with('success', 'The pet has been updated.');
+        $attributes = $request->validated();
+
+        $pet->update($attributes);
+
+        return to_route('pet.show', ['pet' => $pet])->with('success', 'The pet has been updated.');
     }
 
     public function store()
