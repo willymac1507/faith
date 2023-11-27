@@ -18,10 +18,14 @@ class PetFactory extends Factory
             'sex' => fake()->randomElement(['male', 'female']),
             'age_years' => rand(0, 15),
             'age_months' => rand(0, 11),
-            'status' => fake()->randomElement(['Available', 'Reserved', 'Adopted']),
+            'status' => fake()->randomElement(['available', 'reserved', 'adopted']),
             'date_registered' => fake()->dateTimeBetween('-6 years', 'now'),
             'date_reserved' => null,
-            'date_adopted' => null
+            'date_adopted' => null,
+            'prefs_children' => fake()->randomElement([1, 0]),
+            'prefs_teens' => fake()->randomElement([1, 0]),
+            'prefs_dogs' => fake()->randomElement([1, 0]),
+            'prefs_cats' => fake()->randomElement([1, 0]),
         ];
     }
 }

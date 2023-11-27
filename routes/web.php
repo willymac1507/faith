@@ -32,12 +32,15 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/pets', [PetController::class, 'index'])->name('pets.index');
-    Route::get('/pet/{pet:id}', [PetController::class, 'show'])->name('pet.show');
+    Route::get('/pet/{pet:id}/show', [PetController::class, 'show'])->name('pet.show');
     Route::get('/pets/add', [PetController::class, 'create'])->name('pet.create');
+    Route::get('/pet/{pet:id}/edit', [PetController::class, 'edit'])->name('pet.edit');
+    Route::post('/pet/{pet:id}/edit', [PetController::class, 'update'])->name('pet.update');
 });
 
 Route::middleware('auth')->group(function () {
     Route::post('/pet/{pet:id}/add-image', [ImageController::class, 'store'])->name('image.store');
+    Route::get('/pet/{pet:id}/{image:id}/cover', [ImageController::class, 'makeCover'])->name('image.cover');
 });
 
 require __DIR__ . '/auth.php';

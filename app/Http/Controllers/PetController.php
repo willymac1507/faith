@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePetRequest;
 use App\Models\Image;
 use App\Models\Pet;
 use Illuminate\Http\Request;
@@ -26,6 +27,24 @@ class PetController extends Controller
             'pet' => $pet,
             'images' => $pet->images
         ]);
+    }
+
+    public function edit(Pet $pet)
+    {
+        return view('pets.edit', [
+            'pet' => $pet,
+            'images' => $pet->images
+        ]);
+    }
+
+    public function update(Pet $pet, Request $request)
+    {
+        dd($request);
+//        $attributes = $request->validated();
+//
+//        $pet->update($attributes);
+//
+//        return to_route('pet.show', ['pet' => $pet])->with('success', 'The pet has been updated.');
     }
 
     public function store()

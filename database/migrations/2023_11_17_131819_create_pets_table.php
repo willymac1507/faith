@@ -22,6 +22,10 @@ return new class extends Migration {
             $table->date('date_registered')->nullable(false);
             $table->date('date_reserved')->nullable(true);
             $table->date('date_adopted')->nullable(true);
+            $table->boolean('prefs_children')->nullable(false);
+            $table->boolean('prefs_teens')->nullable(false);
+            $table->boolean('prefs_dogs')->nullable(false);
+            $table->boolean('prefs_cats')->nullable(false);
             $table->timestamps();
         });
     }

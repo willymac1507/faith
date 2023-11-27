@@ -37,7 +37,12 @@ class Pet extends Model
         'status',
         'date_registered',
         'date_reserved',
-        'date_adopted'
+        'date_adopted',
+        'prefs_children',
+        'prefs_teens',
+        'prefs_dogs',
+        'prefs_cats',
+
     ];
 
     public function images(): \Illuminate\Database\Eloquent\Relations\HasMany

@@ -20,4 +20,18 @@ class ImageController extends Controller
 
         Image::create($attributes);
     }
+
+    public function makeCover(Pet $pet, Image $image)
+    {
+        foreach ($pet->images as $img) {
+            $img->cover = false;
+            $img->save();
+        }
+
+        $image->cover = true;
+        $image->save();
+
+        return back();
+    }
 }
+
